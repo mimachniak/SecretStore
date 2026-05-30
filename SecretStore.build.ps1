@@ -53,6 +53,7 @@ task BuildModule {
     }
 
     Copy-Item -Force -Recurse "./src/$FullModuleName.Extension/" -Destination ./module
+    Copy-Item -Force -Recurse "./src/dsc/" -Destination ./module # Copy DSC resources
 
     [xml]$xml = Get-Content Directory.Build.props
     $moduleVersion = $xml.Project.PropertyGroup.ModuleVersion
